@@ -10,16 +10,39 @@ def binary_classification_metrics(y_pred, y_true):
     Returns:
     precision, recall, f1, accuracy - classification metrics
     """
+    
+    tp = 0
+    fp = 0
+    tn = 0
+    fn = 0
 
-    # TODO: implement metrics!
-    # Some helpful links:
-    # https://en.wikipedia.org/wiki/Precision_and_recall
-    # https://en.wikipedia.org/wiki/F1_score
+    for pred_val, true_val in zip(y_pred, y_true):
+        if pred_val == true_val == '1': tp += 1
+        if pred_val == '1' and true_val == '0': fp += 1
+        if pred_val == true_val == '0': tn += 1
+        if pred_val == '0' and true_val == '1': fp += 1
 
-    """
-    YOUR CODE IS HERE
-    """
-    pass
+    try:
+        precision = tp / (tp + fp)
+    except ZeroDivisionError as err:
+         print(f'{err}: zero sum of true positive and false positive; precision is being set to 0.0')
+         precision = 0.0
+    
+    try:
+        recall = tp / (tp + fn)
+    except ZeroDivisionError as err:
+         print(f'{err}: zero sum of true positive and false negative; recall is being set to 0.0')
+         recall = 0.0
+
+    try:
+        f1 = 2 * precision * recall / (precision + recall)
+    except ZeroDivisionError as err:
+         print(f'{err}: zero sum of precision and recall; f1 is being set to 0.0')
+         f1 = 0.0
+
+    accuracy = (tp + tn) / y_true.shape[0]
+
+    return precision, recall, f1, accuracy
 
 
 def multiclass_accuracy(y_pred, y_true):
@@ -32,10 +55,13 @@ def multiclass_accuracy(y_pred, y_true):
     accuracy - ratio of accurate predictions to total samples
     """
 
-    """
-    YOUR CODE IS HERE
-    """
-    pass
+    accurate_pred = 0
+
+    for pred_val, true_val in zip(y_pred, y_true):
+        if pred_val == true_val: accurate_pred += 1
+    accuracy = accurate_pred / y_true.shape[0]
+
+    return accuracy
 
 
 def r_squared(y_pred, y_true):
@@ -48,10 +74,11 @@ def r_squared(y_pred, y_true):
     r2 - r-squared value
     """
 
-    """
-    YOUR CODE IS HERE
-    """
-    pass
+    ss_red = np.sum(np.square(y_true - y_pred))
+    ss_tot = np.sum(np.square(y_true - np.average(y_true)))
+    r2 = 1 - ss_red / ss_tot
+
+    return r2
 
 
 def mse(y_pred, y_true):
@@ -64,10 +91,9 @@ def mse(y_pred, y_true):
     mse - mean squared error
     """
 
-    """
-    YOUR CODE IS HERE
-    """
-    pass
+    mse = np.sum(np.square(y_true - y_pred)) / y_true.shape[0]
+
+    return mse
 
 
 def mae(y_pred, y_true):
@@ -80,8 +106,7 @@ def mae(y_pred, y_true):
     mae - mean absolut error
     """
 
-    """
-    YOUR CODE IS HERE
-    """
-    pass
+    mae = np.sum(np.abs(y_true - y_pred)) / y_true.shape[0]
+
+    return mae
     
