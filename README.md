@@ -1,2 +1,2 @@
 # BI_ML_2023
-Public repo for machine learning course in BI
+HW5 (4 actually): ensembles.
