@@ -1,2 +1,2 @@
 # BI_ML_2023
-Public repo for machine learning course in BI
+Feature selection, Kaggle: DOTA 2
