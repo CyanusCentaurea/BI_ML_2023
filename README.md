@@ -1,2 +1,2 @@
 # BI_ML_2023
-Public repo for machine learning course in BI
+HW 7 and 8 Introduction to neural networks
