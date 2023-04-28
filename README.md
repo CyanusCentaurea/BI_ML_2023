@@ -1,2 +1,2 @@
 # BI_ML_2023
-Public repo for machine learning course in BI
+HW 9 and 10 Neural networks for working with images; CNN.
