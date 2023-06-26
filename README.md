@@ -31,14 +31,14 @@ The weights of the pretrained model were frozen, and the classifier was changed 
 
 ### Data slice + augmentation with a given probability
 
-![Screenshot 2023-06-26 154148.jpg](Screenshot 2023-06-26 154148.jpg)
+![./Screenshot 2023-06-26 154148.jpg](./Screenshot 2023-06-26 154148.jpg)
 
 ## Results (5 epochs):
 Phase: train, Loss: 0.011821450976235983, Accuracy: 0.9411190631099544, Epoch: 5/5   
 Phase: val, Loss: 0.007666406750679016, Accuracy: 0.98, Epoch: 5/5
 
 ## [Telegram bot](http://t.me/ram_dog_bot)   
-![Screenshot 2023-06-26 154503.jpg](Screenshot 2023-06-26 154503.jpg)
+![./Screenshot 2023-06-26 154503.jpg](./Screenshot 2023-06-26 154503.jpg)
 
 ### Added:
 * bot description;   
